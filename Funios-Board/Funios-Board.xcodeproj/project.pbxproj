@@ -171,6 +171,7 @@
 		BD4004AF28D6F96C00CC2204 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E628453928DD939100600A62 /* Dota */,
 				015EC4452892C8660072D520 /* Login */,
 				01F8022728A5358B00976A9C /* Home */,
 			);
@@ -250,6 +251,13 @@
 			isa = PBXGroup;
 			children = (
 				E628453628DD91FF00600A62 /* DotaModel.swift */,
+			);
+			path = Dota;
+			sourceTree = "<group>";
+		};
+		E628453928DD939100600A62 /* Dota */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Dota;
 			sourceTree = "<group>";
