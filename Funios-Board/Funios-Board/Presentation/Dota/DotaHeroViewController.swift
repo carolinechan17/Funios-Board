@@ -11,18 +11,21 @@ class DotaHeroViewController: UIViewController {
 
     @IBOutlet weak var dotaHeroTableView: UITableView!
     
-    var dotaHeroData: [DotaModel] = []
+    var dotaHeroData: DotaModel = []
     var dotaServices: DotaServices = DotaServices()
     var storage: UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if dotaHeroData.isEmpty {
-            
+        if let _ = getDataFromLocal(DotaModel.self, with: "DotaCell")?.isEmpty {
+            Task {
+                dotaHeroData = await getHeroFromApi() ?? []
+            }
         } else {
-            
+            dotaHeroData = getDataFromLocal(DotaModel.self, with: "DotaCell")!
         }
+        
     }
 
 }
@@ -37,15 +40,12 @@ extension DotaHeroViewController {
 
 //MARK: Fetch data from API
 extension DotaHeroViewController {
-    func getHeroFromApi() async {
-        do {
-            let data = try await dotaServices.getHero(endPoint: .getHero)
-            
-            //MARK: After successfully fetched data, store data into UserDefaults
-            
-        } catch {
-            print(error)
-        }
+    func getHeroFromApi() async -> DotaModel?{
+        let data = try? await dotaServices.getHero(endPoint: .getHero)
+        
+        //MARK: After successfully fetched data, set data to local
+        setDataToLocal(object: data, with: "DotaCell")
+        return data
     }
 }
 
