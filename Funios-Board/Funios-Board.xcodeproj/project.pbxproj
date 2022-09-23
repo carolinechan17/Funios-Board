@@ -31,6 +31,8 @@
 		E628453728DD91FF00600A62 /* DotaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E628453628DD91FF00600A62 /* DotaModel.swift */; };
 		E628453D28DD944C00600A62 /* DotaHeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E628453B28DD944C00600A62 /* DotaHeroTableViewCell.swift */; };
 		E628453E28DD944C00600A62 /* DotaHeroTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E628453C28DD944C00600A62 /* DotaHeroTableViewCell.xib */; };
+		E628454128DD949800600A62 /* DotaHeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E628453F28DD949800600A62 /* DotaHeroViewController.swift */; };
+		E628454228DD949800600A62 /* DotaHeroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E628454028DD949800600A62 /* DotaHeroViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		E628453628DD91FF00600A62 /* DotaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotaModel.swift; sourceTree = "<group>"; };
 		E628453B28DD944C00600A62 /* DotaHeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotaHeroTableViewCell.swift; sourceTree = "<group>"; };
 		E628453C28DD944C00600A62 /* DotaHeroTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DotaHeroTableViewCell.xib; sourceTree = "<group>"; };
+		E628453F28DD949800600A62 /* DotaHeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotaHeroViewController.swift; sourceTree = "<group>"; };
+		E628454028DD949800600A62 /* DotaHeroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DotaHeroViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				E628453A28DD942300600A62 /* DotaHeroTableViewCell */,
+				E628453F28DD949800600A62 /* DotaHeroViewController.swift */,
+				E628454028DD949800600A62 /* DotaHeroViewController.xib */,
 			);
 			path = Dota;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 				015EC4492892C8810072D520 /* LoginViewController.xib in Resources */,
 				01F8022B28A5359C00976A9C /* HomeViewController.xib in Resources */,
 				01F8023128A547FB00976A9C /* TransactionHistoryTableViewCell.xib in Resources */,
+				E628454228DD949800600A62 /* DotaHeroViewController.xib in Resources */,
 				BDB5576B288AC387006898EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +424,7 @@
 				BD4004AE28D6F81900CC2204 /* UserModel.swift in Sources */,
 				BD4004A128D6F6D600CC2204 /* Networker.swift in Sources */,
 				BDB55766288AC385006898EC /* ViewController.swift in Sources */,
+				E628454128DD949800600A62 /* DotaHeroViewController.swift in Sources */,
 				E628453728DD91FF00600A62 /* DotaModel.swift in Sources */,
 				BD4004AC28D6F7D600CC2204 /* FeedModel.swift in Sources */,
 				BDB55762288AC385006898EC /* AppDelegate.swift in Sources */,
