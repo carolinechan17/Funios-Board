@@ -28,6 +28,7 @@
 		BDB55783288AC387006898EC /* Funios_BoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB55782288AC387006898EC /* Funios_BoardUITests.swift */; };
 		BDB55785288AC387006898EC /* Funios_BoardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB55784288AC387006898EC /* Funios_BoardUITestsLaunchTests.swift */; };
 		E628453428DD905400600A62 /* DotaServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E628453328DD905400600A62 /* DotaServices.swift */; };
+		E628453728DD91FF00600A62 /* DotaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E628453628DD91FF00600A62 /* DotaModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		BDB55782288AC387006898EC /* Funios_BoardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funios_BoardUITests.swift; sourceTree = "<group>"; };
 		BDB55784288AC387006898EC /* Funios_BoardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funios_BoardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E628453328DD905400600A62 /* DotaServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotaServices.swift; sourceTree = "<group>"; };
+		E628453628DD91FF00600A62 /* DotaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotaModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		0178129A28A56D7100E1EB27 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E628453528DD91DC00600A62 /* Dota */,
 				BD4004B128D6F99F00CC2204 /* Transaction */,
 				BD4004AA28D6F7BE00CC2204 /* Home */,
 			);
@@ -241,6 +244,14 @@
 				BDB55784288AC387006898EC /* Funios_BoardUITestsLaunchTests.swift */,
 			);
 			path = "Funios-BoardUITests";
+			sourceTree = "<group>";
+		};
+		E628453528DD91DC00600A62 /* Dota */ = {
+			isa = PBXGroup;
+			children = (
+				E628453628DD91FF00600A62 /* DotaModel.swift */,
+			);
+			path = Dota;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +394,7 @@
 				BD4004AE28D6F81900CC2204 /* UserModel.swift in Sources */,
 				BD4004A128D6F6D600CC2204 /* Networker.swift in Sources */,
 				BDB55766288AC385006898EC /* ViewController.swift in Sources */,
+				E628453728DD91FF00600A62 /* DotaModel.swift in Sources */,
 				BD4004AC28D6F7D600CC2204 /* FeedModel.swift in Sources */,
 				BDB55762288AC385006898EC /* AppDelegate.swift in Sources */,
 				BD4004A328D6F71300CC2204 /* NetworkError.swift in Sources */,
