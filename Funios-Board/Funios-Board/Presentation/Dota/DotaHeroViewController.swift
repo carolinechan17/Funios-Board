@@ -49,6 +49,18 @@ extension DotaHeroViewController {
     }
 }
 
+//MARK: UserDefaults to store data locally
+extension DotaHeroViewController {
+    func setDataToLocal<T: Codable>(object: T, with key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
+        let data = try? encoder.encode(object)
+        UserDefaults.standard.set(data, forKey: key)
+    }
+    
+    func getDataFromLocal<T: Codable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
+        guard let data = self.value(forKey: key) as? Data else {return nil}
+        return try? decoder.decode(type.self, from: data)
+    }
+}
 
 //MARK: Conform UITableViewDelegate and UITableViewDataSource
 extension DotaHeroViewController: UITableViewDelegate, UITableViewDataSource {
