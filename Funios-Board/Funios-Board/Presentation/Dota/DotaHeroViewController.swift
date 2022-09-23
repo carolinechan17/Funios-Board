@@ -11,21 +11,25 @@ class DotaHeroViewController: UIViewController {
 
     @IBOutlet weak var dotaHeroTableView: UITableView!
     
-    var dotaHeroData: DotaModel = []
+    var heroData: DotaModel = []
     var dotaServices: DotaServices = DotaServices()
     var storage: UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let _ = getDataFromLocal(DotaModel.self, with: "dotaHeroData")?.isEmpty {
+        guard let _ = getDataFromLocal(DotaModel.self, with: "heroData") else {
             Task {
-                dotaHeroData = await getHeroFromApi() ?? []
+                heroData = await getHeroFromApi() ?? []
+                print(heroData)
             }
-        } else {
-            dotaHeroData = getDataFromLocal(DotaModel.self, with: "dotaHeroData")!
+            return
         }
         
+        heroData = getDataFromLocal(DotaModel.self, with: "heroData") ?? []
+        print(heroData)
+        
+        setupDelegate()
     }
 
 }
@@ -35,6 +39,7 @@ extension DotaHeroViewController {
     func setupDelegate() {
         self.dotaHeroTableView.dataSource = self
         self.dotaHeroTableView.delegate = self
+        self.dotaHeroTableView.register(UINib(nibName: "DotaHeroTableViewCell", bundle: nil), forCellReuseIdentifier: "DotaCell")
     }
 }
 
@@ -44,7 +49,7 @@ extension DotaHeroViewController {
         let data = try? await dotaServices.getHero(endPoint: .getHero)
         
         //MARK: After successfully fetched data, set data to local
-        setDataToLocal(object: data, with: "dotaHeroData")
+        setDataToLocal(object: data, with: "heroData")
         return data
     }
 }
@@ -57,7 +62,7 @@ extension DotaHeroViewController {
     }
     
     func getDataFromLocal<T: Codable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
-        guard let data = self.value(forKey: key) as? Data else {return nil}
+        guard let data = UserDefaults.standard.value(forKey: key) as? Data else {return nil}
         return try? decoder.decode(type.self, from: data)
     }
 }
@@ -65,7 +70,7 @@ extension DotaHeroViewController {
 //MARK: Conform UITableViewDelegate and UITableViewDataSource
 extension DotaHeroViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dotaHeroData.count
+        return heroData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,7 +78,7 @@ extension DotaHeroViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let hero = dotaHeroData[indexPath.row]
+        let hero = heroData[indexPath.row]
         cell.setupData(heroName: hero.localizedName)
         return cell
     }
