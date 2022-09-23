@@ -18,12 +18,12 @@ class DotaHeroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let _ = getDataFromLocal(DotaModel.self, with: "DotaCell")?.isEmpty {
+        if let _ = getDataFromLocal(DotaModel.self, with: "dotaHeroData")?.isEmpty {
             Task {
                 dotaHeroData = await getHeroFromApi() ?? []
             }
         } else {
-            dotaHeroData = getDataFromLocal(DotaModel.self, with: "DotaCell")!
+            dotaHeroData = getDataFromLocal(DotaModel.self, with: "dotaHeroData")!
         }
         
     }
@@ -44,7 +44,7 @@ extension DotaHeroViewController {
         let data = try? await dotaServices.getHero(endPoint: .getHero)
         
         //MARK: After successfully fetched data, set data to local
-        setDataToLocal(object: data, with: "DotaCell")
+        setDataToLocal(object: data, with: "dotaHeroData")
         return data
     }
 }
@@ -69,6 +69,12 @@ extension DotaHeroViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = dotaHeroTableView.dequeueReusableCell(withIdentifier: "DotaCell") as? DotaHeroTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let hero = dotaHeroData[indexPath.row]
+        cell.setupData(heroName: hero.localizedName)
+        return cell
     }
 }
