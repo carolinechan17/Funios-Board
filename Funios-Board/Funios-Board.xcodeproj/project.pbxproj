@@ -27,6 +27,7 @@
 		BDB55779288AC387006898EC /* Funios_BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB55778288AC387006898EC /* Funios_BoardTests.swift */; };
 		BDB55783288AC387006898EC /* Funios_BoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB55782288AC387006898EC /* Funios_BoardUITests.swift */; };
 		BDB55785288AC387006898EC /* Funios_BoardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB55784288AC387006898EC /* Funios_BoardUITestsLaunchTests.swift */; };
+		E628453428DD905400600A62 /* DotaServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E628453328DD905400600A62 /* DotaServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		BDB5577E288AC387006898EC /* Funios-BoardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Funios-BoardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB55782288AC387006898EC /* Funios_BoardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funios_BoardUITests.swift; sourceTree = "<group>"; };
 		BDB55784288AC387006898EC /* Funios_BoardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funios_BoardUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E628453328DD905400600A62 /* DotaServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotaServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				BD4004A828D6F78F00CC2204 /* HomeServices.swift */,
+				E628453328DD905400600A62 /* DotaServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				BD4004A328D6F71300CC2204 /* NetworkError.swift in Sources */,
 				BDB55764288AC385006898EC /* SceneDelegate.swift in Sources */,
 				01F8023028A547FB00976A9C /* TransactionHistoryTableViewCell.swift in Sources */,
+				E628453428DD905400600A62 /* DotaServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
