@@ -11,6 +11,7 @@ import SwiftUI
 enum NetworkFactory {
     case getPost(page: Int)
     case getUser
+    case getHero
 }
 
 extension NetworkFactory {
@@ -22,13 +23,15 @@ extension NetworkFactory {
             return "/posts/page\(page)"
         case .getUser:
             return "/users"
+        case .getHero:
+            return "/api/heroes"
         }
     }
     
     // MARK: URL QUERY PARAMS / URL PARAMS
     var queryItems: [URLQueryItem] {
         switch self {
-        case .getPost, .getUser:
+        case .getPost, .getUser, .getHero:
             return []
         }
     }
@@ -36,6 +39,8 @@ extension NetworkFactory {
     // MARK: BASE URL API
     var baseApi: String? {
         switch self {
+        case .getHero:
+            return "api.opendota.com"
         default:
             return "3fc7b134-bc49-4118-a5bc-82472c90a981.mock.pstmn.io"
         }
@@ -90,7 +95,7 @@ extension NetworkFactory {
     // MARK: HEADER API
     var headers: [String: String]? {
         switch self {
-        case .getPost, .getUser:
+        case .getPost, .getUser, .getHero:
             return getHeaders(type: .anonymous)
         }
     }
