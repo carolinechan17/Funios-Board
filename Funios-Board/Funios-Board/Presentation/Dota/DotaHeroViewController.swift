@@ -9,7 +9,7 @@ import UIKit
 
 class DotaHeroViewController: UIViewController {
 
-    @IBOutlet weak var dotaHeroTableView: UITableView!
+    @IBOutlet weak var agiHeroTableView: UITableView!
     
     var heroData: DotaModel = []
     var dotaServices: DotaServices = DotaServices()
@@ -41,9 +41,9 @@ class DotaHeroViewController: UIViewController {
 //MARK: Delegate
 extension DotaHeroViewController {
     func setupDelegate() {
-        self.dotaHeroTableView.dataSource = self
-        self.dotaHeroTableView.delegate = self
-        self.dotaHeroTableView.register(UINib(nibName: "DotaHeroTableViewCell", bundle: nil), forCellReuseIdentifier: "DotaCell")
+        self.agiHeroTableView.dataSource = self
+        self.agiHeroTableView.delegate = self
+        self.agiHeroTableView.register(UINib(nibName: "DotaHeroTableViewCell", bundle: nil), forCellReuseIdentifier: "DotaCell")
     }
 }
 
@@ -89,19 +89,24 @@ extension DotaHeroViewController {
     }
 }
 
-//MARK: Conform UITableViewDelegate and UITableViewDataSource
+//MARK: Table View for Agi Hero
 extension DotaHeroViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Agi"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return heroData.count
+        return agi.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = dotaHeroTableView.dequeueReusableCell(withIdentifier: "DotaCell") as? DotaHeroTableViewCell else {
+        guard let cell = agiHeroTableView.dequeueReusableCell(withIdentifier: "DotaCell") as? DotaHeroTableViewCell else {
             return UITableViewCell()
         }
         
-        let hero = heroData[indexPath.row]
-        cell.setupData(heroName: hero.localizedName)
+        let agiHero = agi[indexPath.row]
+        cell.setupData(heroName: agiHero.localizedName)
         return cell
     }
 }
