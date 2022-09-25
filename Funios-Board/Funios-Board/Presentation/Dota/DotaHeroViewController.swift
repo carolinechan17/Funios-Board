@@ -25,24 +25,13 @@ class DotaHeroViewController: UIViewController {
         guard let _ = getDataFromLocal(DotaModel.self, with: "heroData") else {
             Task {
                 heroData = await getHeroFromApi() ?? []
+                classifyHero(data: heroData)
             }
             return
         }
         
         heroData = getDataFromLocal(DotaModel.self, with: "heroData") ?? []
-        
-        for hero in heroData {
-            switch hero.primaryAttr {
-            case "agi":
-                agi.append(hero)
-            case "str":
-                str.append(hero)
-            case "int":
-                str.append(hero)
-            default:
-                continue
-            }
-        }
+        classifyHero(data: heroData)
         
         setupDelegate()
     }
@@ -55,6 +44,24 @@ extension DotaHeroViewController {
         self.dotaHeroTableView.dataSource = self
         self.dotaHeroTableView.delegate = self
         self.dotaHeroTableView.register(UINib(nibName: "DotaHeroTableViewCell", bundle: nil), forCellReuseIdentifier: "DotaCell")
+    }
+}
+
+//MARK: Function to classify hero by their primary attribute
+extension DotaHeroViewController {
+    func classifyHero(data: DotaModel) {
+        for item in data {
+            switch item.primaryAttr {
+            case "agi":
+                agi.append(item)
+            case "str":
+                str.append(item)
+            case "int":
+                int.append(item)
+            default:
+                continue
+            }
+        }
     }
 }
 
