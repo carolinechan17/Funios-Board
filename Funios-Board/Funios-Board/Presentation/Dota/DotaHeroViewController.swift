@@ -15,19 +15,34 @@ class DotaHeroViewController: UIViewController {
     var dotaServices: DotaServices = DotaServices()
     var storage: UserDefaults = UserDefaults.standard
     
+    var agi: DotaModel = []
+    var int: DotaModel = []
+    var str: DotaModel = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         guard let _ = getDataFromLocal(DotaModel.self, with: "heroData") else {
             Task {
                 heroData = await getHeroFromApi() ?? []
-                print(heroData)
             }
             return
         }
         
         heroData = getDataFromLocal(DotaModel.self, with: "heroData") ?? []
-        print(heroData)
+        
+        for hero in heroData {
+            switch hero.primaryAttr {
+            case "agi":
+                agi.append(hero)
+            case "str":
+                str.append(hero)
+            case "int":
+                str.append(hero)
+            default:
+                continue
+            }
+        }
         
         setupDelegate()
     }
