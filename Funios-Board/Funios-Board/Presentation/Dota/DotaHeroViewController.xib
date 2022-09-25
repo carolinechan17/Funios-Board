@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DotaHeroViewController" customModule="Funios_Board" customModuleProvider="target">
             <connections>
-                <outlet property="agiHeroTableView" destination="VdM-DJ-ZDj" id="nB5-8J-8X3"/>
+                <outlet property="heroTableView" destination="VdM-DJ-ZDj" id="wbd-rO-8iA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,29 +21,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VdM-DJ-ZDj">
-                    <rect key="frame" x="0.0" y="47" width="390" height="254"/>
+                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="254" id="TOm-OV-xXR"/>
-                    </constraints>
-                </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5w0-wR-trA">
-                    <rect key="frame" x="0.0" y="301" width="390" height="254"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="254" id="Geb-Ll-NjT"/>
-                    </constraints>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="VdM-DJ-ZDj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0fr-vP-bjM"/>
-                <constraint firstItem="5w0-wR-trA" firstAttribute="top" secondItem="VdM-DJ-ZDj" secondAttribute="bottom" id="0kz-7m-Bnh"/>
                 <constraint firstItem="VdM-DJ-ZDj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Gxx-fo-Av4"/>
                 <constraint firstItem="VdM-DJ-ZDj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Op5-qg-kqr"/>
-                <constraint firstItem="5w0-wR-trA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Yq0-CK-v8B"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5w0-wR-trA" secondAttribute="trailing" id="ZmS-Z1-2xc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VdM-DJ-ZDj" secondAttribute="bottom" id="seZ-9g-2yy"/>
             </constraints>
             <point key="canvasLocation" x="101.53846153846153" y="20.616113744075829"/>
         </view>

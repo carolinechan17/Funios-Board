@@ -8,8 +8,8 @@
 import UIKit
 
 class DotaHeroViewController: UIViewController {
-
-    @IBOutlet weak var agiHeroTableView: UITableView!
+    
+    @IBOutlet weak var heroTableView: UITableView!
     
     var heroData: DotaModel = []
     var dotaServices: DotaServices = DotaServices()
@@ -18,6 +18,9 @@ class DotaHeroViewController: UIViewController {
     var agi: DotaModel = []
     var int: DotaModel = []
     var str: DotaModel = []
+    var classifiedHero: [DotaModel] = []
+    
+    var headers: [String] = ["Agi", "Int", "Str"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +44,9 @@ class DotaHeroViewController: UIViewController {
 //MARK: Delegate
 extension DotaHeroViewController {
     func setupDelegate() {
-        self.agiHeroTableView.dataSource = self
-        self.agiHeroTableView.delegate = self
-        self.agiHeroTableView.register(UINib(nibName: "DotaHeroTableViewCell", bundle: nil), forCellReuseIdentifier: "DotaCell")
+        self.heroTableView.dataSource = self
+        self.heroTableView.delegate = self
+        self.heroTableView.register(UINib(nibName: "DotaHeroTableViewCell", bundle: nil), forCellReuseIdentifier: "DotaCell")
     }
 }
 
@@ -62,6 +65,10 @@ extension DotaHeroViewController {
                 continue
             }
         }
+        
+        classifiedHero.append(agi)
+        classifiedHero.append(int)
+        classifiedHero.append(str)
     }
 }
 
@@ -92,21 +99,34 @@ extension DotaHeroViewController {
 //MARK: Table View for Agi Hero
 extension DotaHeroViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Agi"
+        return headers[section]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return agi.count
+        switch section {
+        case 0:
+            return agi.count
+        case 1:
+            return int.count
+        case 2:
+            return str.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = agiHeroTableView.dequeueReusableCell(withIdentifier: "DotaCell") as? DotaHeroTableViewCell else {
+        guard let cell = heroTableView.dequeueReusableCell(withIdentifier: "DotaCell") as? DotaHeroTableViewCell else {
             return UITableViewCell()
         }
         
-        let agiHero = agi[indexPath.row]
-        cell.setupData(heroName: agiHero.localizedName)
+        let hero = classifiedHero[indexPath.section][indexPath.row]
+        cell.setupData(heroName: hero.localizedName)
         return cell
     }
 }
